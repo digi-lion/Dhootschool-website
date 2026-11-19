@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Hind', sans-serif;
+    @apply bg-white text-gray-800;
+  }
+  h1, h2, h3 {
+    font-family: 'Tiro Devanagari Hindi', serif;
+  }
+}
+
+/* Marquee ticker */
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Section heading underline */
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d97706;
+  margin: 8px auto 0;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Board results modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Fast-blinking CTA */
+@keyframes fastBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.blink-fast {
+  animation: fastBlink 0.7s ease-in-out infinite;
+}
+.blink-fast:hover {
+  animation-play-state: paused;
+  opacity: 1;
+}
